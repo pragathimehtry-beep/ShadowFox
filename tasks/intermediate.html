@@ -69,19 +69,43 @@
             height: auto;
             border-radius: 8px;
         }
-        .center-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    font-family: 'Permanent Marker', cursive;
-    font-size: 60px;
-    color: white;
-    text-align: center;
 
-    text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
-}
+        /* 🔥 Improved Center Text */
+        .center-text {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            font-family: 'Permanent Marker', cursive;
+            font-size: 90px;
+            letter-spacing: 3px;
+
+            color: white;
+            text-align: center;
+
+            text-shadow: 
+                4px 4px 15px rgba(0,0,0,0.9),
+                0 0 25px rgba(255, 0, 0, 0.6);
+
+            width: 90%;
+        }
+
+        /* 📱 Responsive */
+        @media (max-width: 768px) {
+            .center-text {
+                font-size: 50px;
+                top: 60%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .center-text {
+                font-size: 36px;
+                top: 62%;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -109,9 +133,11 @@
         </div>
 
     </div>
-<div class="center-text">
-    EE SALA CUP NAMDA
-</div>
+
+    <div class="center-text">
+        EE SALA CUP NAMDE
+    </div>
+
 </div>
 
 <script>
