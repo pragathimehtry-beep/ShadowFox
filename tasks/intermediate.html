@@ -4,6 +4,7 @@
     <style>
         body {
             margin: 0;
+            font-family: Arial, sans-serif;
         }
 
         .container {
@@ -14,10 +15,11 @@
         }
 
         .top-buttons {
-            position: absolute;
+            position: fixed;
             top: 0;
             width: 100%;
             display: flex;
+            backdrop-filter: blur(8px);
         }
 
         .dropdown {
@@ -27,27 +29,44 @@
 
         .btn {
             width: 100%;
-            padding: 15px;
+            padding: 18px;
             font-size: 18px;
             border: none;
             cursor: pointer;
-            background: red;
+            background: rgba(200, 0, 0, 0.9);
             color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: rgba(150, 0, 0, 1);
         }
 
         .content {
-            display: none;
             position: absolute;
             top: 100%;
-            left: 0;
-            width: 100%;
+            left: 50%;
+            transform: translateX(-50%) scaleY(0);
+            transform-origin: top;
+            width: 80%;
             background: white;
             padding: 15px;
-            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            opacity: 0;
         }
 
-        .content p {
-            margin: 0;
+        .content.show {
+            transform: translateX(-50%) scaleY(1);
+            opacity: 1;
+        }
+
+        .content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -59,19 +78,19 @@
 
         <div class="dropdown">
             <button class="btn" onclick="toggleDropdown('leftContent')">
-                Left Button
+                Women's RCB Team
             </button>
             <div id="leftContent" class="content">
-               <img src="https://i.pinimg.com/1200x/8c/74/43/8c744378fb4c77d622f5cd0c0dd53b98.jpg" alt="Girl in a jacket" width="100" height="300">
+                <img src="https://i.pinimg.com/1200x/8c/74/43/8c744378fb4c77d622f5cd0c0dd53b98.jpg">
             </div>
         </div>
 
         <div class="dropdown">
             <button class="btn" onclick="toggleDropdown('rightContent')">
-                Right Button
+                Men's RCB Team
             </button>
             <div id="rightContent" class="content">
-                <img src="https://i.pinimg.com/1200x/38/2f/f0/382ff01c35866b34f83af01d8fb29c14.jpg" alt="Girl in a jacket" width="100" height="300">
+                <img src="https://i.pinimg.com/1200x/38/2f/f0/382ff01c35866b34f83af01d8fb29c14.jpg">
             </div>
         </div>
 
@@ -83,11 +102,13 @@
     function toggleDropdown(id) {
         let content = document.getElementById(id);
 
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
+        // close all dropdowns first
+        document.querySelectorAll('.content').forEach(c => {
+            if (c.id !== id) c.classList.remove('show');
+        });
+
+        // toggle selected
+        content.classList.toggle('show');
     }
 </script>
 
