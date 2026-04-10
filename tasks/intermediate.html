@@ -23,7 +23,7 @@
             top: 20px;
             left: 20px;
             font-size: 32px;
-            color: #ff1a1a;
+            color: #ff1a1a; /* RED ICON */
             cursor: pointer;
             z-index: 1000;
         }
@@ -53,30 +53,31 @@
             transition: 0.3s;
         }
 
+        /* HOVER EFFECT */
         .sidebar a:hover {
             background: rgba(255,0,0,0.3);
             border-left: 4px solid #ff1a1a;
             padding-left: 30px;
         }
 
+        /* ACTIVE MENU */
         .sidebar.active {
             left: 0;
         }
 
-        /* BUTTON LAYOUT (MORE LEFT & RIGHT) */
+        /* BUTTON LAYOUT */
         .top-buttons {
             position: absolute;
             top: 50%;
-            left: 0;
-            transform: translateY(-50%);
+            left: 50%;
+            transform: translate(-50%, -50%);
             
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            width: 100%;
-            padding: 0 40px; /* adjust this for spacing */
-            box-sizing: border-box;
+            width: 80%;
+            max-width: 750px;
         }
 
         /* ROUNDED CARD BUTTON */
@@ -122,7 +123,6 @@
             letter-spacing: 2px;
         }
 
-        /* IMAGES */
         .women {
             background-image: url("https://i.pinimg.com/1200x/8c/74/43/8c744378fb4c77d622f5cd0c0dd53b98.jpg");
         }
@@ -136,7 +136,6 @@
             .top-buttons {
                 flex-direction: column;
                 gap: 20px;
-                padding: 0;
             }
         }
 
