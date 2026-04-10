@@ -29,7 +29,7 @@
             z-index: 1000;
         }
 
-        /* SIDEBAR MENU */
+        /* SIDEBAR */
         .sidebar {
             position: fixed;
             top: 0;
@@ -130,12 +130,12 @@
             background-image: url("https://i.pinimg.com/1200x/6d/be/cf/6dbecf24c3c786b0973d877a32fc992a.jpg");
         }
 
-        /* CENTER TEXT (YOUR LINE) */
+        /* WHITE PAINTED TEXT */
         .center-text {
             position: absolute;
             top: 65%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) rotate(-2deg);
 
             font-family: 'Bebas Neue', sans-serif;
             font-size: 60px;
@@ -143,11 +143,14 @@
             text-transform: uppercase;
             text-align: center;
 
-            background: linear-gradient(45deg, #ff1a1a, #ff4d4d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
 
-            text-shadow: 0 5px 15px rgba(0,0,0,0.8);
+            text-shadow:
+                3px 3px 0 #ff1a1a,
+                -2px -2px 0 rgba(255,255,255,0.3),
+                0 6px 15px rgba(0,0,0,0.9);
+
+            filter: contrast(110%) brightness(105%);
         }
 
         /* MOBILE */
@@ -190,7 +193,7 @@
         </button>
     </div>
 
-    <!-- YOUR CENTER TEXT -->
+    <!-- CENTER TEXT -->
     <div class="center-text">
         ee sala cup namde
     </div>
@@ -205,4 +208,3 @@ function toggleMenu() {
 
 </body>
 </html>
-
