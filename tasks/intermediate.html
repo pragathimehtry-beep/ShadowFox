@@ -15,20 +15,21 @@
             background-position: center;
         }
 
-        /* 🔥 CENTERED STACKED BUTTONS */
+        /* CENTERED STACK */
         .top-buttons {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;
-            flex-direction: column; /* stack vertically */
-            width: 250px;
+            flex-direction: column;
+            width: 260px;
             gap: 15px;
         }
 
         .dropdown {
-            position: relative;
+            width: 100%;
+            text-align: center;
         }
 
         .btn {
@@ -47,30 +48,20 @@
             background: rgba(150, 0, 0, 1);
         }
 
+        /* IMAGE STYLE */
         .content {
-            position: absolute;
-            top: 110%;
-            left: 50%;
-            transform: translateX(-50%) scaleY(0);
-            transform-origin: top;
-            width: 100%;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-            opacity: 0;
-        }
-
-        .content.show {
-            transform: translateX(-50%) scaleY(1);
-            opacity: 1;
+            display: none;
+            margin-top: 10px;
         }
 
         .content img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+        .content.show {
+            display: block;
         }
 
     </style>
@@ -82,7 +73,7 @@
     <div class="top-buttons">
 
         <div class="dropdown">
-            <button class="btn" onclick="toggleDropdown('leftContent')">
+            <button class="btn" onclick="toggleImage('leftContent')">
                 Women's RCB Team
             </button>
             <div id="leftContent" class="content">
@@ -91,7 +82,7 @@
         </div>
 
         <div class="dropdown">
-            <button class="btn" onclick="toggleDropdown('rightContent')">
+            <button class="btn" onclick="toggleImage('rightContent')">
                 Men's RCB Team
             </button>
             <div id="rightContent" class="content">
@@ -104,14 +95,16 @@
 </div>
 
 <script>
-    function toggleDropdown(id) {
-        let content = document.getElementById(id);
+    function toggleImage(id) {
+        let img = document.getElementById(id);
 
+        // hide others
         document.querySelectorAll('.content').forEach(c => {
             if (c.id !== id) c.classList.remove('show');
         });
 
-        content.classList.toggle('show');
+        // toggle selected
+        img.classList.toggle('show');
     }
 </script>
 
