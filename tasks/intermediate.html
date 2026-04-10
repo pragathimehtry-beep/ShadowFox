@@ -67,7 +67,7 @@
             left: 0;
         }
 
-        /* BUTTON LAYOUT */
+        /* CENTER LAYOUT */
         .top-buttons {
             position: absolute;
             top: 50%;
@@ -75,11 +75,9 @@
             transform: translate(-50%, -50%);
             
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* STACKED */
             align-items: center;
-
-            width: 80%;
-            max-width: 750px;
+            gap: 20px;
         }
 
         /* BUTTON STYLE */
@@ -133,17 +131,13 @@
             background-image: url("https://i.pinimg.com/1200x/6d/be/cf/6dbecf24c3c786b0973d877a32fc992a.jpg");
         }
 
-        /* SLOGAN TEXT */
+        /* SLOGAN (NOW PERFECTLY BELOW BUTTONS) */
         .slogan {
-            position: absolute;
-            bottom: 50px;
-            width: 100%;
-            text-align: center;
-
             font-family: 'Permanent Marker', cursive;
             font-size: 45px;
-
             color: #ff1a1a;
+
+            text-align: center;
 
             text-shadow: 
                 2px 2px 0 black,
@@ -157,7 +151,7 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(25px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -167,14 +161,13 @@
 
         /* MOBILE */
         @media (max-width: 600px) {
-            .top-buttons {
-                flex-direction: column;
-                gap: 20px;
+            .btn {
+                width: 250px;
+                height: 150px;
             }
 
             .slogan {
-                font-size: 32px;
-                bottom: 30px;
+                font-size: 30px;
             }
         }
 
@@ -197,6 +190,7 @@
 <div class="container">
 
     <div class="top-buttons">
+
         <button class="btn women">
             <span>Women's RCB Team</span>
         </button>
@@ -204,10 +198,11 @@
         <button class="btn men">
             <span>Men's RCB Team</span>
         </button>
-    </div>
 
-    <!-- SLOGAN -->
-    <div class="slogan">Ee Sala Cup Namde</div>
+        <!-- SLOGAN -->
+        <div class="slogan">Ee Sala Cup Namde</div>
+
+    </div>
 
 </div>
 
