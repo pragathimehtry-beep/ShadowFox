@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,12 +24,12 @@
             top: 20px;
             left: 20px;
             font-size: 32px;
-            color: #ff1a1a; /* RED ICON */
+            color: #ff1a1a;
             cursor: pointer;
             z-index: 1000;
         }
 
-        /* SIDEBAR MENU (RED THEME) */
+        /* SIDEBAR */
         .sidebar {
             position: fixed;
             top: 0;
@@ -53,16 +54,36 @@
             transition: 0.3s;
         }
 
-        /* HOVER EFFECT */
         .sidebar a:hover {
             background: rgba(255,0,0,0.3);
             border-left: 4px solid #ff1a1a;
             padding-left: 30px;
         }
 
-        /* ACTIVE MENU */
         .sidebar.active {
             left: 0;
+        }
+
+        /* RCB LOGO + TEXT */
+        .logo-box {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            text-align: center;
+        }
+
+        .rcb-logo {
+            width: 90px;
+        }
+
+        .rcb-text {
+            margin-top: 8px;
+            color: #ff1a1a;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255,0,0,0.9);
         }
 
         /* BUTTON LAYOUT */
@@ -80,7 +101,7 @@
             max-width: 750px;
         }
 
-        /* ROUNDED CARD BUTTON */
+        /* BUTTON STYLE */
         .btn {
             width: 300px;
             height: 180px;
@@ -138,7 +159,6 @@
                 gap: 20px;
             }
         }
-
     </style>
 </head>
 
@@ -157,6 +177,13 @@
 
 <div class="container">
 
+    <!-- RCB LOGO + SLOGAN -->
+    <div class="logo-box">
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/4f/Royal_Challengers_Bangalore_Logo.svg" class="rcb-logo">
+        <div class="rcb-text">Ee Sala Cup Namde</div>
+    </div>
+
+    <!-- BUTTONS -->
     <div class="top-buttons">
         <button class="btn women">
             <span>Women's RCB Team</span>
@@ -177,3 +204,5 @@ function toggleMenu() {
 
 </body>
 </html>
+```
+
