@@ -26,10 +26,10 @@
             font-size: 32px;
             color: #ff1a1a;
             cursor: pointer;
-            z-index: 1000;
+            z-index: 1001; /* above everything */
         }
 
-        /* SIDEBAR */
+        /* SIDEBAR (FIXED) */
         .sidebar {
             position: fixed;
             top: 0;
@@ -40,6 +40,7 @@
             padding-top: 60px;
             transition: 0.4s;
             box-shadow: 5px 0 20px rgba(0,0,0,0.6);
+            z-index: 1000; /* FIX: ensures it appears */
         }
 
         .sidebar a {
