@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,6 @@
             background-image: url("https://i.pinimg.com/1200x/c0/94/74/c09474b75f4e360d0a0ba251ba9d28b0.jpg");
             background-size: cover;
             background-position: center;
-            position: relative;
         }
 
         /* MENU BUTTON */
@@ -25,12 +24,12 @@
             top: 20px;
             left: 20px;
             font-size: 32px;
-            color: #ff1a1a;
+            color: #ff1a1a; /* RED ICON */
             cursor: pointer;
             z-index: 1000;
         }
 
-        /* SIDEBAR */
+        /* SIDEBAR MENU (RED THEME) */
         .sidebar {
             position: fixed;
             top: 0;
@@ -55,40 +54,16 @@
             transition: 0.3s;
         }
 
+        /* HOVER EFFECT */
         .sidebar a:hover {
             background: rgba(255,0,0,0.3);
             border-left: 4px solid #ff1a1a;
             padding-left: 30px;
         }
 
+        /* ACTIVE MENU */
         .sidebar.active {
             left: 0;
-        }
-
-        /* PAINTED TEXT (RCB SLOGAN) */
-        .paint-text {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 42px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-
-            color: #ff1a1a;
-
-            /* Paint edge */
-            -webkit-text-stroke: 1px black;
-
-            /* Glow + depth */
-            text-shadow:
-                0 0 5px #ff0000,
-                0 0 15px rgba(255,0,0,0.8),
-                3px 3px 6px rgba(0,0,0,0.8);
-
-            /* Blend into background */
-            mix-blend-mode: overlay;
         }
 
         /* BUTTON LAYOUT */
@@ -106,7 +81,7 @@
             max-width: 750px;
         }
 
-        /* BUTTON STYLE */
+        /* ROUNDED CARD BUTTON */
         .btn {
             width: 300px;
             height: 180px;
@@ -163,12 +138,8 @@
                 flex-direction: column;
                 gap: 20px;
             }
-
-            .paint-text {
-                font-size: 28px;
-                right: 20px;
-            }
         }
+
     </style>
 </head>
 
@@ -187,10 +158,6 @@
 
 <div class="container">
 
-    <!-- PAINT STYLE TEXT -->
-    <div class="paint-text">Ee Sala Cup Namde</div>
-
-    <!-- BUTTONS -->
     <div class="top-buttons">
         <button class="btn women">
             <span>Women's RCB Team</span>
@@ -211,7 +178,4 @@ function toggleMenu() {
 
 </body>
 </html>
-```
-
-
 
