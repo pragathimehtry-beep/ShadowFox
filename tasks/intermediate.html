@@ -23,45 +23,57 @@
             transform: translate(-50%, -50%);
             display: flex;
             flex-direction: column;
-            width: 260px;
-            gap: 15px;
+            width: 280px;
+            gap: 20px;
         }
 
-        .dropdown {
-            width: 100%;
-            text-align: center;
-        }
-
+        /* IMAGE BUTTON */
         .btn {
-            width: 100%;
-            padding: 18px;
-            font-size: 18px;
+            height: 160px;
             border: none;
             cursor: pointer;
-            background: rgba(200, 0, 0, 0.9);
             color: white;
+            font-size: 20px;
             font-weight: bold;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* DARK OVERLAY */
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
             transition: 0.3s;
         }
 
-        .btn:hover {
-            background: rgba(150, 0, 0, 1);
+        .btn:hover::before {
+            background: rgba(0,0,0,0.6);
         }
 
-        /* IMAGE STYLE */
-        .content {
-            display: none;
-            margin-top: 10px;
+        /* TEXT ABOVE OVERLAY */
+        .btn span {
+            position: relative;
+            z-index: 1;
+            text-align: center;
         }
 
-        .content img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        /* SPECIFIC IMAGES */
+        .women {
+            background-image: url("https://i.pinimg.com/1200x/8c/74/43/8c744378fb4c77d622f5cd0c0dd53b98.jpg");
         }
 
-        .content.show {
-            display: block;
+        .men {
+            background-image: url("https://i.pinimg.com/1200x/6d/be/cf/6dbecf24c3c786b0973d877a32fc992a.jpg");
         }
 
     </style>
@@ -72,41 +84,18 @@
 
     <div class="top-buttons">
 
-        <div class="dropdown">
-            <button class="btn" onclick="toggleImage('leftContent')">
-                Women's RCB Team
-            </button>
-            <div id="leftContent" class="content">
-                <img src="https://i.pinimg.com/1200x/8c/74/43/8c744378fb4c77d622f5cd0c0dd53b98.jpg">
-            </div>
-        </div>
+        <button class="btn women">
+            <span>Women's RCB Team</span>
+        </button>
 
-        <div class="dropdown">
-            <button class="btn" onclick="toggleImage('rightContent')">
-                Men's RCB Team
-            </button>
-            <div id="rightContent" class="content">
-                <img src="https://i.pinimg.com/1200x/6d/be/cf/6dbecf24c3c786b0973d877a32fc992a.jpg">
-            </div>
-        </div>
+        <button class="btn men">
+            <span>Men's RCB Team</span>
+        </button>
 
     </div>
 
 </div>
 
-<script>
-    function toggleImage(id) {
-        let img = document.getElementById(id);
-
-        // hide others
-        document.querySelectorAll('.content').forEach(c => {
-            if (c.id !== id) c.classList.remove('show');
-        });
-
-        // toggle selected
-        img.classList.toggle('show');
-    }
-</script>
-
 </body>
 </html>
+
