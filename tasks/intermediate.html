@@ -1,8 +1,10 @@
-
+```html
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -16,6 +18,7 @@
             background-image: url("https://i.pinimg.com/1200x/c0/94/74/c09474b75f4e360d0a0ba251ba9d28b0.jpg");
             background-size: cover;
             background-position: center;
+            position: relative;
         }
 
         /* MENU BUTTON */
@@ -24,12 +27,12 @@
             top: 20px;
             left: 20px;
             font-size: 32px;
-            color: #ff1a1a; /* RED ICON */
+            color: #ff1a1a;
             cursor: pointer;
             z-index: 1000;
         }
 
-        /* SIDEBAR MENU (RED THEME) */
+        /* SIDEBAR */
         .sidebar {
             position: fixed;
             top: 0;
@@ -54,14 +57,12 @@
             transition: 0.3s;
         }
 
-        /* HOVER EFFECT */
         .sidebar a:hover {
             background: rgba(255,0,0,0.3);
             border-left: 4px solid #ff1a1a;
             padding-left: 30px;
         }
 
-        /* ACTIVE MENU */
         .sidebar.active {
             left: 0;
         }
@@ -81,7 +82,7 @@
             max-width: 750px;
         }
 
-        /* ROUNDED CARD BUTTON */
+        /* BUTTON STYLE */
         .btn {
             width: 300px;
             height: 180px;
@@ -132,11 +133,48 @@
             background-image: url("https://i.pinimg.com/1200x/6d/be/cf/6dbecf24c3c786b0973d877a32fc992a.jpg");
         }
 
+        /* SLOGAN TEXT */
+        .slogan {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            text-align: center;
+
+            font-family: 'Permanent Marker', cursive;
+            font-size: 45px;
+
+            color: #ff1a1a;
+
+            text-shadow: 
+                2px 2px 0 black,
+                4px 4px 12px rgba(0,0,0,0.8);
+
+            letter-spacing: 3px;
+
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* MOBILE */
         @media (max-width: 600px) {
             .top-buttons {
                 flex-direction: column;
                 gap: 20px;
+            }
+
+            .slogan {
+                font-size: 32px;
+                bottom: 30px;
             }
         }
 
@@ -168,6 +206,9 @@
         </button>
     </div>
 
+    <!-- SLOGAN -->
+    <div class="slogan">Ee Sala Cup Namde</div>
+
 </div>
 
 <script>
@@ -178,4 +219,6 @@ function toggleMenu() {
 
 </body>
 </html>
+```
+
 
