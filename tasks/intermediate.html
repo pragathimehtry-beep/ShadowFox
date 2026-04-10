@@ -1,10 +1,7 @@
-```html
 <!DOCTYPE html>
 <html>
 <head>
-
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -32,7 +29,7 @@
             z-index: 1000;
         }
 
-        /* SIDEBAR */
+        /* SIDEBAR MENU */
         .sidebar {
             position: fixed;
             top: 0;
@@ -67,7 +64,7 @@
             left: 0;
         }
 
-        /* CENTER LAYOUT */
+        /* BUTTON LAYOUT */
         .top-buttons {
             position: absolute;
             top: 50%;
@@ -75,9 +72,11 @@
             transform: translate(-50%, -50%);
             
             display: flex;
-            flex-direction: column; /* STACKED */
+            justify-content: space-between;
             align-items: center;
-            gap: 20px;
+
+            width: 80%;
+            max-width: 750px;
         }
 
         /* BUTTON STYLE */
@@ -131,46 +130,38 @@
             background-image: url("https://i.pinimg.com/1200x/6d/be/cf/6dbecf24c3c786b0973d877a32fc992a.jpg");
         }
 
-        /* SLOGAN (NOW PERFECTLY BELOW BUTTONS) */
-        .slogan {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 45px;
-            color: #ff1a1a;
+        /* CENTER TEXT (YOUR LINE) */
+        .center-text {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
 
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 60px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
             text-align: center;
 
-            text-shadow: 
-                2px 2px 0 black,
-                4px 4px 12px rgba(0,0,0,0.8);
+            background: linear-gradient(45deg, #ff1a1a, #ff4d4d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
 
-            letter-spacing: 3px;
-
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            text-shadow: 0 5px 15px rgba(0,0,0,0.8);
         }
 
         /* MOBILE */
         @media (max-width: 600px) {
-            .btn {
-                width: 250px;
-                height: 150px;
+            .top-buttons {
+                flex-direction: column;
+                gap: 20px;
             }
 
-            .slogan {
-                font-size: 30px;
+            .center-text {
+                font-size: 35px;
+                top: 70%;
             }
         }
-
     </style>
 </head>
 
@@ -190,7 +181,6 @@
 <div class="container">
 
     <div class="top-buttons">
-
         <button class="btn women">
             <span>Women's RCB Team</span>
         </button>
@@ -198,10 +188,11 @@
         <button class="btn men">
             <span>Men's RCB Team</span>
         </button>
+    </div>
 
-        <!-- SLOGAN -->
-        <div class="slogan">Ee Sala Cup Namde</div>
-
+    <!-- YOUR CENTER TEXT -->
+    <div class="center-text">
+        ee sala cup namde
     </div>
 
 </div>
@@ -214,6 +205,4 @@ function toggleMenu() {
 
 </body>
 </html>
-```
-
 
