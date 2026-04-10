@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -8,135 +9,105 @@
             font-family: Arial, sans-serif;
         }
 
-        .container {
-            height: 100vh;
-            background-image: url("https://i.pinimg.com/1200x/c0/94/74/c09474b75f4e360d0a0ba251ba9d28b0.jpg");
-            background-size: cover;
-            background-position: center;
-        }
+```
+    .container {
+        height: 100vh;
+        background-image: url("https://i.pinimg.com/1200x/c0/94/74/c09474b75f4e360d0a0ba251ba9d28b0.jpg");
+        background-size: cover;
+        background-position: center;
 
-        .top-buttons {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            backdrop-filter: blur(8px);
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .dropdown {
-            flex: 1;
-            position: relative;
-        }
+    /* CENTER STACKED BUTTONS */
+    .top-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 80%;
+        max-width: 400px;
+    }
 
-        .btn {
-            width: 100%;
-            padding: 18px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-            background: rgba(200, 0, 0, 0.9);
-            color: white;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+    .dropdown {
+        position: relative;
+    }
 
-        .btn:hover {
-            background: rgba(150, 0, 0, 1);
-        }
+    .btn {
+        width: 100%;
+        padding: 18px;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        background: rgba(200, 0, 0, 0.9);
+        color: white;
+        font-weight: bold;
+        transition: 0.3s;
+        border-radius: 8px;
+    }
 
-        .content {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) scaleY(0);
-            transform-origin: top;
-            width: 80%;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-            opacity: 0;
-        }
+    .btn:hover {
+        background: rgba(150, 0, 0, 1);
+    }
 
-        .content.show {
-            transform: translateX(-50%) scaleY(1);
-            opacity: 1;
-        }
+    .content {
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translateX(-50%) scaleY(0);
+        transform-origin: top;
+        width: 100%;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease;
+        opacity: 0;
+    }
 
-        .content img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+    .content.show {
+        transform: translateX(-50%) scaleY(1);
+        opacity: 1;
+    }
 
-        /* 🔥 Text BELOW the logo */
-        .center-text {
-            position: absolute;
-            top: 65%; /* below symbol */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            
-            font-family: 'Permanent Marker', cursive;
-            font-size: 90px;
-            letter-spacing: 3px;
+    .content img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
 
-            color: white;
-            text-align: center;
+</style>
+```
 
-            text-shadow: 
-                4px 4px 15px rgba(0,0,0,0.9),
-                0 0 25px rgba(255, 0, 0, 0.6);
-
-            width: 90%;
-        }
-
-        /* 📱 Responsive */
-        @media (max-width: 768px) {
-            .center-text {
-                font-size: 50px;
-                top: 68%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .center-text {
-                font-size: 36px;
-                top: 70%;
-            }
-        }
-
-    </style>
 </head>
 <body>
 
 <div class="container">
 
-    <div class="top-buttons">
+```
+<div class="top-buttons">
 
-        <div class="dropdown">
-            <button class="btn" onclick="toggleDropdown('leftContent')">
-                Women's RCB Team
-            </button>
-            <div id="leftContent" class="content">
-                <img src="https://i.pinimg.com/1200x/8c/74/43/8c744378fb4c77d622f5cd0c0dd53b98.jpg">
-            </div>
+    <div class="dropdown">
+        <button class="btn" onclick="toggleDropdown('leftContent')">
+            Women's RCB Team
+        </button>
+        <div id="leftContent" class="content">
+            <img src="https://i.pinimg.com/1200x/8c/74/43/8c744378fb4c77d622f5cd0c0dd53b98.jpg">
         </div>
-
-        <div class="dropdown">
-            <button class="btn" onclick="toggleDropdown('rightContent')">
-                Men's RCB Team
-            </button>
-            <div id="rightContent" class="content">
-                <img src="https://i.pinimg.com/1200x/6d/be/cf/6dbecf24c3c786b0973d877a32fc992a.jpg">
-            </div>
-        </div>
-
     </div>
 
-    <div class="center-text">
-        EE SALA CUP NAMDE
+    <div class="dropdown">
+        <button class="btn" onclick="toggleDropdown('rightContent')">
+            Men's RCB Team
+        </button>
+        <div id="rightContent" class="content">
+            <img src="https://i.pinimg.com/1200x/6d/be/cf/6dbecf24c3c786b0973d877a32fc992a.jpg">
+        </div>
     </div>
+
+</div>
+```
 
 </div>
 
@@ -144,12 +115,10 @@
     function toggleDropdown(id) {
         let content = document.getElementById(id);
 
-        // close all dropdowns first
         document.querySelectorAll('.content').forEach(c => {
             if (c.id !== id) c.classList.remove('show');
         });
 
-        // toggle selected
         content.classList.toggle('show');
     }
 </script>
