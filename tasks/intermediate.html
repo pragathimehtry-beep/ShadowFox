@@ -138,7 +138,24 @@
                 gap: 20px;
             }
         }
+    .content-box {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
 
+    background: rgba(0,0,0,0.7);
+    color: white;
+
+    border-radius: 15px;
+    text-align: center;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
     </style>
 </head>
 
@@ -149,12 +166,11 @@
 
 <!-- SIDEBAR -->
 <div id="sidebar" class="sidebar">
-    <a href="#">Team History & Legacy</a>
-    <a href="#">Year Founded</a>
-    <a href="#">IPL Titles & Achievements</a>
-    <a href="#">Legendary Players</a>
+    <a href="#" onclick="showContent('history')">Team History & Legacy</a>
+    <a href="#" onclick="showContent('founded')">Year Founded</a>
+    <a href="#" onclick="showContent('titles')">IPL Titles & Achievements</a>
+    <a href="#" onclick="showContent('players')">Legendary Players</a>
 </div>
-
 <div class="container">
 
     <div class="top-buttons">
@@ -166,13 +182,42 @@
             <span>Men's RCB Team</span>
         </button>
     </div>
-
+<div id="contentBox" class="content-box">
+    <h2 id="contentTitle">Welcome</h2>
+    <p id="contentText">Click a menu item to see details.</p>
+</div>
 </div>
 
 <script>
 function toggleMenu() {
     document.getElementById("sidebar").classList.toggle("active");
 }
+function showContent(section) {
+    let title = document.getElementById("contentTitle");
+    let text = document.getElementById("contentText");
+
+    if (section === "history") {
+        title.innerText = "RCB Team History & Legacy";
+        text.innerText = "Royal Challengers Bangalore is one of the most popular IPL teams known for its loyal fan base and iconic players.";
+    }
+
+    else if (section === "founded") {
+        title.innerText = "Year Founded";
+        text.innerText = "RCB was founded in 2008 when the IPL started.";
+    }
+
+    else if (section === "titles") {
+        title.innerText = "IPL Titles & Achievements";
+        text.innerText = "RCB has reached the finals multiple times but is still chasing its first IPL trophy.";
+    }
+
+    else if (section === "players") {
+        title.innerText = "Legendary Players";
+        text.innerText = "Some legends include Virat Kohli, AB de Villiers, and Chris Gayle.";
+    }
+
+    // OPTIONAL: close sidebar after click
+    document.getElementById("sidebar").classList.remove("active");
 </script>
 
 </body>
