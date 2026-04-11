@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
         }
 
+        /* BACKGROUND */
         .container {
             height: 100vh;
             background-image: url("https://i.pinimg.com/1200x/c0/94/74/c09474b75f4e360d0a0ba251ba9d28b0.jpg");
@@ -16,19 +17,18 @@
             background-position: center;
         }
 
+        /* MENU BUTTON */
         .menu-btn {
-            position: fixed;
+            position: absolute;
             top: 20px;
             left: 20px;
             font-size: 32px;
-            color: #ff1a1a;
+            color: #ff1a1a; /* RED ICON */
             cursor: pointer;
-            z-index: 1001;
-            background: rgba(0,0,0,0.5);
-            padding: 5px 12px;
-            border-radius: 8px;
+            z-index: 1000;
         }
 
+        /* SIDEBAR MENU (RED THEME) */
         .sidebar {
             position: fixed;
             top: 0;
@@ -38,8 +38,7 @@
             background: linear-gradient(180deg, #990000, #1a0000);
             padding-top: 60px;
             transition: 0.4s;
-            z-index: 1000;
-            overflow-y: auto;
+            box-shadow: 5px 0 20px rgba(0,0,0,0.6);
         }
 
         .sidebar a {
@@ -49,147 +48,130 @@
             text-decoration: none;
             font-family: 'Bebas Neue', sans-serif;
             font-size: 22px;
-            cursor: pointer;
+            letter-spacing: 1px;
+            border-left: 4px solid transparent;
+            transition: 0.3s;
         }
 
+        /* HOVER EFFECT */
         .sidebar a:hover {
             background: rgba(255,0,0,0.3);
+            border-left: 4px solid #ff1a1a;
+            padding-left: 30px;
         }
 
+        /* ACTIVE MENU */
         .sidebar.active {
             left: 0;
         }
 
-        /* CONTENT BOX */
-        .content-box {
-            position: fixed;
-            bottom: 30px;
+        /* BUTTON LAYOUT */
+        .top-buttons {
+            position: absolute;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
             width: 80%;
-            max-width: 800px;
-            padding: 20px;
-            background: rgba(0,0,0,0.85);
+            max-width: 750px;
+        }
+
+        /* ROUNDED CARD BUTTON */
+        .btn {
+            width: 300px;
+            height: 180px;
+            border: none;
+            cursor: pointer;
             color: white;
-            border-radius: 15px;
-            z-index: 1002;
-            display: none;
+            border-radius: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-size: cover;
+            background-position: center;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            position: relative;
+            overflow: hidden;
         }
 
-        .content-box h2 {
+        .btn:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
             font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
             letter-spacing: 2px;
-            margin: 0 0 10px 0;
         }
 
-        .content-box p {
-            margin: 0;
-            line-height: 1.5;
+        .women {
+            background-image: url("https://i.pinimg.com/1200x/8c/74/43/8c744378fb4c77d622f5cd0c0dd53b98.jpg");
         }
 
-        .divider {
-            height: 2px;
-            background: rgba(255,255,255,0.2);
-            margin: 10px 20px;
+        .men {
+            background-image: url("https://i.pinimg.com/1200x/6d/be/cf/6dbecf24c3c786b0973d877a32fc992a.jpg");
         }
 
-        .section-label {
-            padding: 10px 25px;
-            color: #ffaaaa;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 18px;
-            letter-spacing: 1px;
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .top-buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
+
     </style>
 </head>
 
 <body>
 
+<!-- MENU ICON -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
+<!-- SIDEBAR -->
 <div id="sidebar" class="sidebar">
-    <div class="section-label">🏏 MEN'S TEAM</div>
-    <a onclick="showContent('history')">Team History & Legacy</a>
-    <a onclick="showContent('founded')">Year Founded</a>
-    <a onclick="showContent('titles')">IPL Titles & Achievements</a>
-    <a onclick="showContent('players')">Legendary Players</a>
-    
-    <div class="divider"></div>
-    
-    <div class="section-label">🌸 WOMEN'S TEAM (RCBW)</div>
-    <a onclick="showContent('womens_history')">RCBW Team History</a>
-    <a onclick="showContent('womens_founded')">RCBW Year Founded</a>
-    <a onclick="showContent('womens_titles')">WPL Titles & Achievements</a>
-    <a onclick="showContent('womens_players')">RCBW Star Players</a>
+    <a href="#">Team History & Legacy</a>
+    <a href="#">Year Founded</a>
+    <a href="#">IPL Titles & Achievements</a>
+    <a href="#">Legendary Players</a>
 </div>
 
-<div class="container"></div>
+<div class="container">
 
-<!-- CONTENT DISPLAY -->
-<div id="contentBox" class="content-box">
-    <h2 id="contentTitle"></h2>
-    <p id="contentText"></p>
+    <div class="top-buttons">
+        <button class="btn women">
+            <span>Women's RCB Team</span>
+        </button>
+
+        <button class="btn men">
+            <span>Men's RCB Team</span>
+        </button>
+    </div>
+
 </div>
 
 <script>
 function toggleMenu() {
     document.getElementById("sidebar").classList.toggle("active");
-}
-
-function showContent(section) {
-    const box = document.getElementById("contentBox");
-    const title = document.getElementById("contentTitle");
-    const text = document.getElementById("contentText");
-
-    box.style.display = "block";
-
-    // MEN'S TEAM CONTENT
-    if(section === "history") {
-        title.innerText = "RCB Team History & Legacy";
-        text.innerText = "Royal Challengers Bangalore (RCB) is one of the most popular IPL teams, known for its passionate fanbase and exciting matches since the league began in 2008.";
-    }
-
-    if(section === "founded") {
-        title.innerText = "Year Founded";
-        text.innerText = "RCB was founded in 2008 as one of the original IPL franchises.";
-    }
-
-    if(section === "titles") {
-        title.innerText = "IPL Titles & Achievements";
-        text.innerText = "RCB has reached the IPL finals three times (2009, 2011, 2016) but is yet to win a title. Despite this, they hold multiple batting records.";
-    }
-
-    if(section === "players") {
-        title.innerText = "Legendary Players";
-        text.innerText = "RCB legends include Virat Kohli, AB de Villiers, Chris Gayle, and Anil Kumble.";
-    }
-
-    // WOMEN'S TEAM CONTENT (RCB Women)
-    if(section === "womens_history") {
-        title.innerText = "RCB Women's Team History";
-        text.innerText = "Royal Challengers Bangalore Women (RCBW) was established in 2023 as part of the Women's Premier League (WPL). The team represents Bangalore in the WPL and has quickly gained a massive fan following, known for their fighting spirit and talented roster.";
-    }
-
-    if(section === "womens_founded") {
-        title.innerText = "RCBW Year Founded";
-        text.innerText = "The RCB Women's team was founded in 2023, when the Women's Premier League (WPL) was inaugurated by the BCCI. RCB was one of the five original franchises in the WPL.";
-    }
-
-    if(section === "womens_titles") {
-        title.innerText = "WPL Titles & Achievements";
-        text.innerText = "RCB Women made history by winning their maiden WPL title in 2024, defeating Delhi Capitals in the final. This was a landmark achievement for the franchise, bringing the first-ever trophy to the RCB family. They have established themselves as one of the most competitive teams in the league.";
-    }
-
-    if(section === "womens_players") {
-        title.innerText = "RCBW Star Players";
-        text.innerText = "RCB Women feature incredible talents like Smriti Mandhana (captain), Ellyse Perry, Sophie Devine, Richa Ghosh, Renuka Singh, Shreyanka Patil, and Asha Sobhana. These players have delivered match-winning performances and brought glory to the franchise.";
-    }
-
-    // Auto close sidebar after clicking for better mobile experience
-    const sidebar = document.getElementById("sidebar");
-    if(sidebar.classList.contains("active")) {
-        sidebar.classList.remove("active");
-    }
 }
 </script>
 
