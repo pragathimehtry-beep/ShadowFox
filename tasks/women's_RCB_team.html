@@ -111,7 +111,58 @@
         .details-box {
             margin-top: 15px;
         }
+        .player-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: rgba(0,0,0,0.85);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
 
+.player-box h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+}
+
+/* PLAYER GRID */
+.players {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 150px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: rgba(255,0,0,0.3);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin-top: 10px;
+}
     </style>
 </head>
 
@@ -163,7 +214,36 @@
         </div>
 
     </div>
+<!-- PLAYER SECTION -->
+<div id="playerSection" class="player-box hidden">
 
+    <h1>RCB Women's Players</h1>
+
+    <div class="players">
+
+        <div class="card" onclick="showPlayer('Smriti Mandhana', 'Captain & Batter')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Smriti_Mandhana.jpg">
+            <h3>Smriti Mandhana</h3>
+        </div>
+
+        <div class="card" onclick="showPlayer('Ellyse Perry', 'All-Rounder')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Ellyse_Perry.jpg">
+            <h3>Ellyse Perry</h3>
+        </div>
+
+        <div class="card" onclick="showPlayer('Richa Ghosh', 'Wicketkeeper')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Richa_Ghosh.jpg">
+            <h3>Richa Ghosh</h3>
+        </div>
+
+    </div>
+
+    <!-- PLAYER DETAILS -->
+    <div class="details-box">
+        <p id="playerDetails">Click a player to see details</p>
+    </div>
+
+</div>
 </div>
 
 <script>
