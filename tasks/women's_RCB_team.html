@@ -4,96 +4,132 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <style>
-     
-        /* BACKGROUND */
-          body {
+        body {
             margin: 0;
             font-family: Arial, sans-serif;
         }
+
+        /* BACKGROUND */
         .container {
             height: 100vh;
             background-image: url("https://www.shutterstock.com/image-photo/semi-top-view-rounded-full-600nw-2594552419.jpg");
             background-size: cover;
             background-position: center;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-     .schedule-box {
-    background: rgba(0,0,0,0.75);
-    padding: 25px;
-    border-radius: 15px;
-    color: white;
-    text-align: center;
-    width: 90%;
-    max-width: 700px;
-}
+        /* MENU BUTTON */
+        .menu-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 32px;
+            color: red;
+            cursor: pointer;
+        }
 
-.schedule-box h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    margin-bottom: 20px;
-}
+        /* SIDEBAR */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background: linear-gradient(180deg, #990000, #1a0000);
+            padding-top: 60px;
+            transition: 0.4s;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+        .sidebar a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+        }
 
-tr {
-    cursor: pointer;
-    transition: 0.3s;
-}
+        .sidebar a:hover {
+            background: rgba(255,0,0,0.3);
+        }
 
-tr:hover {
-    background: rgba(255,0,0,0.3);
-    transform: scale(1.02);
-}
+        .sidebar.active {
+            left: 0;
+        }
 
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-}
+        /* HIDE SECTIONS */
+        .hidden {
+            display: none;
+        }
 
-th {
-    color: #ff1a1a;
-}
+        /* SCHEDULE BOX */
+        .schedule-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            background: rgba(0,0,0,0.8);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+        }
 
-.logo {
-    width: 25px;
-    vertical-align: middle;
-    margin-right: 8px;
-}
+        .schedule-box h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+        }
 
-/* LIVE STATUS */
-.live {
-    color: lime;
-    font-weight: bold;
-    animation: blink 1s infinite;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-@keyframes blink {
-    50% { opacity: 0.3; }
-}
+        tr {
+            cursor: pointer;
+        }
 
-/* DETAILS BOX */
-.details-box {
-    margin-top: 20px;
-    background: rgba(0,0,0,0.8);
-    padding: 15px;
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-}
+        tr:hover {
+            background: rgba(255,0,0,0.3);
+        }
+
+        th, td {
+            padding: 10px;
+        }
+
+        th {
+            color: red;
+        }
+
+        .live {
+            color: lime;
+            font-weight: bold;
+        }
+
+        .details-box {
+            margin-top: 15px;
+        }
+
     </style>
 </head>
 
 <body>
+
+<!-- MENU BUTTON -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" onclick="showSection('schedule')">Match Schedule</a>
+</div>
+
 <div class="container">
 
-    <div class="schedule-box">
+    <!-- MATCH SCHEDULE -->
+    <div id="scheduleSection" class="schedule-box hidden">
+
         <h1>RCB Women's Schedule</h1>
 
         <table>
@@ -103,51 +139,57 @@ th {
                 <th>Status</th>
             </tr>
 
-            <tr onclick="showDetails('MI', 'Bangalore', '7:30 PM')">
+            <tr onclick="showDetails('Mumbai Indians', 'Bangalore', '7:30 PM')">
                 <td>March 1</td>
-                <td>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Mumbai_Indians_Logo.svg" class="logo">
-                    vs MI
-                </td>
+                <td>vs MI</td>
                 <td class="live">LIVE</td>
             </tr>
 
-            <tr onclick="showDetails('DC', 'Delhi', '7:30 PM')">
+            <tr onclick="showDetails('Delhi Capitals', 'Delhi', '7:30 PM')">
                 <td>March 5</td>
-                <td>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg" class="logo">
-                    vs DC
-                </td>
+                <td>vs DC</td>
                 <td>Upcoming</td>
             </tr>
 
-            <tr onclick="showDetails('UP', 'Lucknow', '7:30 PM')">
+            <tr onclick="showDetails('UP Warriorz', 'Lucknow', '7:30 PM')">
                 <td>March 8</td>
-                <td>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/7/7c/UP_Warriorz.svg" class="logo">
-                    vs UP
-                </td>
+                <td>vs UP</td>
                 <td>Upcoming</td>
             </tr>
-
         </table>
-    </div>
 
-    <!-- MATCH DETAILS BOX -->
-    <div id="detailsBox" class="details-box">
-        <h2>Match Details</h2>
-        <p id="detailsText">Click a match to see details</p>
+        <div class="details-box">
+            <p id="detailsText">Click a match to see details</p>
+        </div>
+
     </div>
 
 </div>
-    <script>
-    function showDetails(team, venue, time) {
-    document.getElementById("detailsText").innerText =
-        "Opponent: " + team +
-        " | Venue: " + venue +
-        " | Time: " + time;
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
 }
-        </script>
+
+function showSection(section) {
+    // hide all
+    document.getElementById("scheduleSection").classList.add("hidden");
+
+    // show selected
+    if (section === "schedule") {
+        document.getElementById("scheduleSection").classList.remove("hidden");
+    }
+
+    // close menu
+    document.getElementById("sidebar").classList.remove("active");
+}
+
+function showDetails(team, venue, time) {
+    document.getElementById("detailsText").innerText =
+        "Opponent: " + team + " | Venue: " + venue + " | Time: " + time;
+}
+</script>
+
 </body>
 </html>
 
