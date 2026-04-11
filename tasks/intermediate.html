@@ -12,6 +12,7 @@
 
         .container {
             height: 100vh;
+            width: 100%;
             background-image: url("https://i.pinimg.com/1200x/c0/94/74/c09474b75f4e360d0a0ba251ba9d28b0.jpg");
             background-size: cover;
             background-position: center;
@@ -25,9 +26,10 @@
             color: #ff1a1a;
             cursor: pointer;
             z-index: 1001;
-            background: rgba(0,0,0,0.5);
-            padding: 5px 12px;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 16px;
             border-radius: 8px;
+            display: inline-block;
         }
 
         .sidebar {
@@ -40,6 +42,7 @@
             padding-top: 60px;
             transition: 0.4s;
             z-index: 1000;
+            overflow-y: auto;
         }
 
         .sidebar a {
@@ -60,7 +63,7 @@
             left: 0;
         }
 
-        /* CONTENT BOX - FIXED OVERLAPPING ISSUE */
+        /* CONTENT BOX - FIXED OVERLAPPING */
         .content-box {
             position: fixed;
             bottom: 30px;
@@ -91,7 +94,7 @@
 
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="menu-btn" onclick="toggleMenu()">☰ MENU</div>
 
 <div id="sidebar" class="sidebar">
     <a onclick="showContent('history')">Team History & Legacy</a>
@@ -139,6 +142,12 @@ function showContent(section) {
     if(section === "players") {
         title.innerText = "Legendary Players";
         text.innerText = "RCB legends include Virat Kohli, AB de Villiers, Chris Gayle, and Anil Kumble.";
+    }
+
+    // Auto close sidebar after clicking on mobile/desktop for better UX
+    var sidebar = document.getElementById("sidebar");
+    if(sidebar.classList.contains("active")) {
+        sidebar.classList.remove("active");
     }
 }
 </script>
