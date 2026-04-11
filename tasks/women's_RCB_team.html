@@ -21,15 +21,133 @@
             align-items: center;
         }
 
- 
+     .schedule-box {
+    background: rgba(0,0,0,0.75);
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+}
+
+.schedule-box h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+tr:hover {
+    background: rgba(255,0,0,0.3);
+    transform: scale(1.02);
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+th {
+    color: #ff1a1a;
+}
+
+.logo {
+    width: 25px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* LIVE STATUS */
+.live {
+    color: lime;
+    font-weight: bold;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.3; }
+}
+
+/* DETAILS BOX */
+.details-box {
+    margin-top: 20px;
+    background: rgba(0,0,0,0.8);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
     </style>
 </head>
 
 <body>
 <div class="container">
-  
-</div>
 
+    <div class="schedule-box">
+        <h1>RCB Women's Schedule</h1>
+
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Match</th>
+                <th>Status</th>
+            </tr>
+
+            <tr onclick="showDetails('MI', 'Bangalore', '7:30 PM')">
+                <td>March 1</td>
+                <td>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Mumbai_Indians_Logo.svg" class="logo">
+                    vs MI
+                </td>
+                <td class="live">LIVE</td>
+            </tr>
+
+            <tr onclick="showDetails('DC', 'Delhi', '7:30 PM')">
+                <td>March 5</td>
+                <td>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg" class="logo">
+                    vs DC
+                </td>
+                <td>Upcoming</td>
+            </tr>
+
+            <tr onclick="showDetails('UP', 'Lucknow', '7:30 PM')">
+                <td>March 8</td>
+                <td>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/7/7c/UP_Warriorz.svg" class="logo">
+                    vs UP
+                </td>
+                <td>Upcoming</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <!-- MATCH DETAILS BOX -->
+    <div id="detailsBox" class="details-box">
+        <h2>Match Details</h2>
+        <p id="detailsText">Click a match to see details</p>
+    </div>
+
+</div>
+    <script>
+    function showDetails(team, venue, time) {
+    document.getElementById("detailsText").innerText =
+        "Opponent: " + team +
+        " | Venue: " + venue +
+        " | Time: " + time;
+}
+        </script>
 </body>
 </html>
 
