@@ -166,7 +166,7 @@
 
 <!-- SIDEBAR -->
 <div id="sidebar" class="sidebar">
-    <a href="#" onclick="showContent('history')">Team History & Legacy</a>
+    <a href="javascript:void(0)" onclick="showContent('history')">Team History & Legacy</a>
     <a href="#" onclick="showContent('founded')">Year Founded</a>
     <a href="#" onclick="showContent('titles')">IPL Titles & Achievements</a>
     <a href="#" onclick="showContent('players')">Legendary Players</a>
@@ -192,7 +192,8 @@
 function toggleMenu() {
     document.getElementById("sidebar").classList.toggle("active");
 }
-function showContent(section) {
+
+    function showContent(section) {
     let title = document.getElementById("contentTitle");
     let text = document.getElementById("contentText");
 
@@ -216,6 +217,8 @@ function showContent(section) {
         text.innerText = "Some legends include Virat Kohli, AB de Villiers, and Chris Gayle.";
     }
 
+    document.getElementById("sidebar").classList.remove("active");
+}
     // OPTIONAL: close sidebar after click
     document.getElementById("sidebar").classList.remove("active");
 </script>
