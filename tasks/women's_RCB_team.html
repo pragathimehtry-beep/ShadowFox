@@ -253,24 +253,35 @@ function toggleMenu() {
 }
 
 function showSection(section) {
-    // hide all
-    document.getElementById("scheduleSection").classList.add("hidden");
 
-    // show selected
+    // hide all sections
+    document.getElementById("scheduleSection").classList.add("hidden");
+    document.getElementById("playerSection").classList.add("hidden");
+
+    // show selected section
     if (section === "schedule") {
         document.getElementById("scheduleSection").classList.remove("hidden");
     }
 
-    // close menu
+    if (section === "players") {
+        document.getElementById("playerSection").classList.remove("hidden");
+    }
+
+    // close sidebar
     document.getElementById("sidebar").classList.remove("active");
 }
-
 function showDetails(team, venue, time) {
     document.getElementById("detailsText").innerText =
         "Opponent: " + team + " | Venue: " + venue + " | Time: " + time;
+}
+
+function showPlayer(name, role) {
+    document.getElementById("playerDetails").innerText =
+        name + " - " + role;
 }
 </script>
 
 </body>
 </html>
+
 
