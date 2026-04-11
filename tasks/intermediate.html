@@ -7,12 +7,10 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            overflow-x: hidden;
         }
 
         .container {
             height: 100vh;
-            width: 100%;
             background-image: url("https://i.pinimg.com/1200x/c0/94/74/c09474b75f4e360d0a0ba251ba9d28b0.jpg");
             background-size: cover;
             background-position: center;
@@ -26,10 +24,9 @@
             color: #ff1a1a;
             cursor: pointer;
             z-index: 1001;
-            background: rgba(0,0,0,0.6);
-            padding: 8px 16px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 12px;
             border-radius: 8px;
-            display: inline-block;
         }
 
         .sidebar {
@@ -63,7 +60,7 @@
             left: 0;
         }
 
-        /* CONTENT BOX - FIXED OVERLAPPING */
+        /* CONTENT BOX */
         .content-box {
             position: fixed;
             bottom: 30px;
@@ -89,18 +86,41 @@
             margin: 0;
             line-height: 1.5;
         }
+
+        .divider {
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            margin: 10px 20px;
+        }
+
+        .section-label {
+            padding: 10px 25px;
+            color: #ffaaaa;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">☰ MENU</div>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
 <div id="sidebar" class="sidebar">
+    <div class="section-label">🏏 MEN'S TEAM</div>
     <a onclick="showContent('history')">Team History & Legacy</a>
     <a onclick="showContent('founded')">Year Founded</a>
     <a onclick="showContent('titles')">IPL Titles & Achievements</a>
     <a onclick="showContent('players')">Legendary Players</a>
+    
+    <div class="divider"></div>
+    
+    <div class="section-label">🌸 WOMEN'S TEAM (RCBW)</div>
+    <a onclick="showContent('womens_history')">RCBW Team History</a>
+    <a onclick="showContent('womens_founded')">RCBW Year Founded</a>
+    <a onclick="showContent('womens_titles')">WPL Titles & Achievements</a>
+    <a onclick="showContent('womens_players')">RCBW Star Players</a>
 </div>
 
 <div class="container"></div>
@@ -113,17 +133,17 @@
 
 <script>
 function toggleMenu() {
-    var sidebar = document.getElementById("sidebar");
-    sidebar.classList.toggle("active");
+    document.getElementById("sidebar").classList.toggle("active");
 }
 
 function showContent(section) {
-    var box = document.getElementById("contentBox");
-    var title = document.getElementById("contentTitle");
-    var text = document.getElementById("contentText");
+    const box = document.getElementById("contentBox");
+    const title = document.getElementById("contentTitle");
+    const text = document.getElementById("contentText");
 
     box.style.display = "block";
 
+    // MEN'S TEAM CONTENT
     if(section === "history") {
         title.innerText = "RCB Team History & Legacy";
         text.innerText = "Royal Challengers Bangalore (RCB) is one of the most popular IPL teams, known for its passionate fanbase and exciting matches since the league began in 2008.";
@@ -144,8 +164,29 @@ function showContent(section) {
         text.innerText = "RCB legends include Virat Kohli, AB de Villiers, Chris Gayle, and Anil Kumble.";
     }
 
-    // Auto close sidebar after clicking on mobile/desktop for better UX
-    var sidebar = document.getElementById("sidebar");
+    // WOMEN'S TEAM CONTENT (RCB Women)
+    if(section === "womens_history") {
+        title.innerText = "RCB Women's Team History";
+        text.innerText = "Royal Challengers Bangalore Women (RCBW) was established in 2023 as part of the Women's Premier League (WPL). The team represents Bangalore in the WPL and has quickly gained a massive fan following, known for their fighting spirit and talented roster.";
+    }
+
+    if(section === "womens_founded") {
+        title.innerText = "RCBW Year Founded";
+        text.innerText = "The RCB Women's team was founded in 2023, when the Women's Premier League (WPL) was inaugurated by the BCCI. RCB was one of the five original franchises in the WPL.";
+    }
+
+    if(section === "womens_titles") {
+        title.innerText = "WPL Titles & Achievements";
+        text.innerText = "RCB Women made history by winning their maiden WPL title in 2024, defeating Delhi Capitals in the final. This was a landmark achievement for the franchise, bringing the first-ever trophy to the RCB family. They have established themselves as one of the most competitive teams in the league.";
+    }
+
+    if(section === "womens_players") {
+        title.innerText = "RCBW Star Players";
+        text.innerText = "RCB Women feature incredible talents like Smriti Mandhana (captain), Ellyse Perry, Sophie Devine, Richa Ghosh, Renuka Singh, Shreyanka Patil, and Asha Sobhana. These players have delivered match-winning performances and brought glory to the franchise.";
+    }
+
+    // Auto close sidebar after clicking for better mobile experience
+    const sidebar = document.getElementById("sidebar");
     if(sidebar.classList.contains("active")) {
         sidebar.classList.remove("active");
     }
