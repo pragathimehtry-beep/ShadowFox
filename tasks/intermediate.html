@@ -1,80 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
-        .container {
-            height: 100vh;
-            background-image: url("https://i.pinimg.com/1200x/c0/94/74/c09474b75f4e360d0a0ba251ba9d28b0.jpg");
-            background-size: cover;
-            background-position: center;
-        }
+/* BACKGROUND */
+.container {
+    height: 100vh;
+    background-image: url("https://i.pinimg.com/1200x/c0/94/74/c09474b75f4e360d0a0ba251ba9d28b0.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
 
-        .menu-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 32px;
-            color: #ff1a1a;
-            cursor: pointer;
-            z-index: 1000;
-        }
+/* MENU */
+.menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 32px;
+    color: #ff1a1a;
+    cursor: pointer;
+    z-index: 1000;
+}
 
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -280px;
-            width: 280px;
-            height: 100%;
-            background: linear-gradient(180deg, #990000, #1a0000);
-            padding-top: 60px;
-            transition: 0.4s;
-        }
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: linear-gradient(180deg, #990000, #1a0000);
+    padding-top: 60px;
+    transition: 0.4s;
+}
 
-        .sidebar a {
-            display: block;
-            padding: 16px 25px;
-            color: white;
-            text-decoration: none;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px;
-            cursor: pointer;
-        }
+.sidebar a {
+    display: block;
+    padding: 16px 25px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    cursor: pointer;
+}
 
-        .sidebar a:hover {
-            background: rgba(255,0,0,0.3);
-        }
+.sidebar.active {
+    left: 0;
+}
 
-        .sidebar.active {
-            left: 0;
-        }
+/* BUTTONS */
+.top-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 40px;
+}
 
-        /* CONTENT BOX */
-        .content-box {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            max-width: 800px;
-            padding: 20px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            border-radius: 15px;
-            display: none;
-        }
+.btn {
+    width: 300px;
+    height: 180px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Bebas Neue';
+    font-size: 28px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+}
 
-        .content-box h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 2px;
-        }
-    </style>
+.women {
+    background-image: url("https://i.pinimg.com/1200x/8c/74/43/8c744378fb4c77d622f5cd0c0dd53b98.jpg");
+}
+
+.men {
+    background-image: url("https://i.pinimg.com/1200x/6d/be/cf/6dbecf24c3c786b0973d877a32fc992a.jpg");
+}
+
+/* CONTENT BOX */
+.content-box {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border-radius: 15px;
+    display: none;
+}
+
+</style>
 </head>
 
 <body>
@@ -82,18 +108,26 @@
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
 <div id="sidebar" class="sidebar">
-    <a onclick="showContent('history')">Team History & Legacy</a>
+    <a onclick="showContent('history')">Team History</a>
     <a onclick="showContent('founded')">Year Founded</a>
-    <a onclick="showContent('titles')">IPL Titles & Achievements</a>
-    <a onclick="showContent('players')">Legendary Players</a>
+    <a onclick="showContent('titles')">Titles</a>
+    <a onclick="showContent('players')">Players</a>
 </div>
 
-<div class="container"></div>
+<div class="container">
 
-<!-- CONTENT DISPLAY -->
-<div id="contentBox" class="content-box">
-    <h2 id="contentTitle"></h2>
-    <p id="contentText"></p>
+    <!-- ✅ BUTTONS BACK -->
+    <div class="top-buttons">
+        <button class="btn women">Women's RCB</button>
+        <button class="btn men">Men's RCB</button>
+    </div>
+
+    <!-- ✅ CONTENT INSIDE CONTAINER -->
+    <div id="contentBox" class="content-box">
+        <h2 id="contentTitle"></h2>
+        <p id="contentText"></p>
+    </div>
+
 </div>
 
 <script>
@@ -109,23 +143,23 @@ function showContent(section) {
     box.style.display = "block";
 
     if(section === "history") {
-        title.innerText = "RCB Team History & Legacy";
-        text.innerText = "Royal Challengers Bangalore (RCB) is one of the most popular IPL teams, known for its passionate fanbase and exciting matches since the league began in 2008.";
+        title.innerText = "RCB History";
+        text.innerText = "RCB is one of the most popular IPL teams since 2008.";
     }
 
     if(section === "founded") {
-        title.innerText = "Year Founded";
-        text.innerText = "RCB was founded in 2008 as one of the original IPL franchises.";
+        title.innerText = "Founded";
+        text.innerText = "RCB was founded in 2008.";
     }
 
     if(section === "titles") {
-        title.innerText = "IPL Titles & Achievements";
-        text.innerText = "RCB has reached the IPL finals three times (2009, 2011, 2016) but is yet to win a title. Despite this, they hold multiple batting records.";
+        title.innerText = "Titles";
+        text.innerText = "RCB reached finals 3 times but hasn't won yet.";
     }
 
     if(section === "players") {
-        title.innerText = "Legendary Players";
-        text.innerText = "RCB legends include Virat Kohli, AB de Villiers, Chris Gayle, and Anil Kumble.";
+        title.innerText = "Players";
+        text.innerText = "Virat Kohli, AB de Villiers, Chris Gayle.";
     }
 }
 </script>
