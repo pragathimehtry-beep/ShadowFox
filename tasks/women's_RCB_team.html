@@ -291,6 +291,7 @@
 	<a href="javascript:void(0)" onclick="showSection('stats')">Team Statistics</a>
 	<a href="javascript:void(0)" onclick="showSection('news')">Latest News</a>
 	<a href="javascript:void(0)" onclick="showSection('fans')">Fan Zone</a>
+	<a href="javascript:void(0)" onclick="showSection('Home_page')">Home Page</a>
 </div>
 
 <div class="container">
@@ -490,7 +491,10 @@
 
     <div id="commentList" style="margin-top:10px;"></div>
 </div>
-
+  <div id="Home_pageSection" class="schedule-box hidden">
+   
+</div>
+		
 </div>
 
 <script>
@@ -505,6 +509,7 @@ function showSection(section) {
     document.getElementById("statsSection").classList.add("hidden");
 	document.getElementById("newsSection").classList.add("hidden");
 	document.getElementById("fansSection").classList.add("hidden");
+	document.getElementById("Home_pageSection").classList.add("hidden");
 
     // show selected section
     if (section === "schedule") {
