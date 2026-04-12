@@ -189,6 +189,7 @@
     <a href="javascript:void(0)" onclick="showSection('players')">Current Players</a>
 	<a href="javascript:void(0)" onclick="showSection('stats')">Team Statistics</a>
 	<a href="javascript:void(0)" onclick="showSection('news')">Latest News</a>
+	<a href="javascript:void(0)" onclick="showSection('fans')">Fan Zone</a>
 </div>
 
 <div class="container">
@@ -342,6 +343,34 @@
     </div>
 
 </div>
+	<div id="fansSection" class="schedule-box hidden">
+    <h1>Fan Zone 💬</h1>
+
+    <!-- POLL -->
+    <h3>Who is your favorite player?</h3>
+
+    <button onclick="vote('Mandhana')">Smriti Mandhana</button>
+    <button onclick="vote('Richa')">Richa Ghosh</button>
+    <button onclick="vote('Shreyanka')">Shreyanka Patil</button>
+
+    <p id="voteResult">No votes yet</p>
+
+    <hr>
+
+    <!-- LIKE BUTTON -->
+    <h3>Support RCB ❤️</h3>
+    <button onclick="likeTeam()">❤️ Like</button>
+    <p id="likeCount">Likes: 0</p>
+
+    <hr>
+
+    <!-- COMMENT BOX -->
+    <h3>Fan Comments</h3>
+    <input type="text" id="commentInput" placeholder="Write a comment..." style="padding:8px; width:70%;">
+    <button onclick="addComment()">Post</button>
+
+    <div id="commentList" style="margin-top:10px;"></div>
+</div>
 </div>
 
 <script>
@@ -355,6 +384,7 @@ function showSection(section) {
     document.getElementById("playerSection").classList.add("hidden");
     document.getElementById("statsSection").classList.add("hidden");
 	document.getElementById("newsSection").classList.add("hidden");
+	document.getElementById("fansSection").classList.add("hidden");
 
     // show selected section
     if (section === "schedule") {
@@ -371,7 +401,9 @@ function showSection(section) {
 	if (section === "news") {
     document.getElementById("newsSection").classList.remove("hidden");
 }
-
+	if (section === "fans") {
+    document.getElementById("fansSection").classList.remove("hidden");
+}
     // close sidebar
     document.getElementById("sidebar").classList.remove("active");
 }
@@ -388,6 +420,31 @@ function showPlayer(name, role) {
 	function showNews(title, content) {
     document.getElementById("newsDetails").innerText =
         title + " - " + content;
+}
+	let likes = 0;
+
+function likeTeam() {
+    likes++;
+    document.getElementById("likeCount").innerText = "Likes: " + likes;
+}
+
+function vote(player) {
+    document.getElementById("voteResult").innerText =
+        "You voted for " + player + "!";
+}
+
+function addComment() {
+    let input = document.getElementById("commentInput");
+    let comment = input.value;
+
+    if (comment.trim() === "") return;
+
+    let div = document.createElement("div");
+    div.innerText = "💬 " + comment;
+
+    document.getElementById("commentList").appendChild(div);
+
+    input.value = "";
 }
 </script>
 
