@@ -110,7 +110,7 @@
         .details-box {
             margin-top: 15px;
         }
-          .player-box {
+   .player-box {
     position: absolute;
     top: 80%;
     left: 58%;
@@ -175,7 +175,7 @@
 <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" onclick="showSection('schedule')">Match Schedule</a>
     <a href="javascript:void(0)" onclick="showSection('players')">Current Players</a>
-	<a href="javascript:void(0)" onclick="showContent('stats')">Team Statistics</a>
+	<a href="javascript:void(0)" onclick="showSection('stats')">Team Statistics</a>
 </div>
 
 <div class="container">
@@ -293,6 +293,16 @@
             <h3>Linsey Smith</h3>
         </div>
      </div>
+	<div id="statsSection" class="schedule-box hidden">
+    <h1>RCB Team Statistics</h1>
+
+    <p><b>Matches Played:</b> 240+</p>
+    <p><b>Wins:</b> 110+</p>
+    <p><b>Highest Score:</b> 263/5</p>
+    <p><b>Lowest Score:</b> 49 all out</p>
+    <p><b>Top Run Scorer:</b> Virat Kohli</p>
+    <p><b>Top Wicket Taker:</b> Yuzvendra Chahal</p>
+</div>
     <!-- PLAYER DETAILS -->
     <div class="details-box">
         <p id="playerDetails">Click a player to see details</p>
@@ -305,12 +315,12 @@
 function toggleMenu() {
     document.getElementById("sidebar").classList.toggle("active");
 }
-
 function showSection(section) {
 
     // hide all sections
     document.getElementById("scheduleSection").classList.add("hidden");
     document.getElementById("playerSection").classList.add("hidden");
+    document.getElementById("statsSection").classList.add("hidden");
 
     // show selected section
     if (section === "schedule") {
@@ -320,16 +330,13 @@ function showSection(section) {
     if (section === "players") {
         document.getElementById("playerSection").classList.remove("hidden");
     }
-	else if (section === "stats") {
-    title.innerText = "RCB Team Statistics";
-    text.innerHTML = `
-        <b>Matches Played:</b> 240+ <br><br>
-        <b>Wins:</b> 110+ <br><br>
-        <b>Highest Team Score:</b> 263/5 <br><br>
-        <b>Lowest Team Score:</b> 49 all out <br><br>
-        <b>Top Run Scorer:</b> Virat Kohli <br><br>
-        <b>Top Wicket Taker:</b> Yuzvendra Chahal
-    `;
+
+    if (section === "stats") {
+        document.getElementById("statsSection").classList.remove("hidden");
+    }
+
+    // close sidebar
+    document.getElementById("sidebar").classList.remove("active");
 }
 
     // close sidebar
