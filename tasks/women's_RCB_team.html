@@ -163,6 +163,18 @@
 .card h3 {
     margin-top: 10px;
 }
+		.news-item {
+    background: rgba(255,255,255,0.1);
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.news-item:hover {
+    background: rgba(255,0,0,0.3);
+}
     </style>
 </head>
 
@@ -176,6 +188,7 @@
     <a href="javascript:void(0)" onclick="showSection('schedule')">Match Schedule</a>
     <a href="javascript:void(0)" onclick="showSection('players')">Current Players</a>
 	<a href="javascript:void(0)" onclick="showSection('stats')">Team Statistics</a>
+	<a href="javascript:void(0)" onclick="showSection('news')">Latest News</a>
 </div>
 
 <div class="container">
@@ -308,6 +321,25 @@
     <p><b>Top Run Scorer:</b> Smriti Mandhana</p>
     <p><b>Top Wicket Taker:</b>  Shreyanka Patil</p>
 </div>
+	<div id="newsSection" class="schedule-box hidden">
+    <h1>RCB Women's News</h1>
+
+    <div class="news-item" onclick="showNews('RCB wins WPL 2026!', 'RCB defeated Delhi Capitals in the final to lift their 2nd title.')">
+        🏆 RCB wins WPL 2026
+    </div>
+
+    <div class="news-item" onclick="showNews('Smriti Mandhana shines', 'Mandhana played a match-winning knock in the finals.')">
+        🌟 Mandhana leads from front
+    </div>
+
+    <div class="news-item" onclick="showNews('Shreyanka Patil top bowler', 'She finished as one of the leading wicket-takers.')">
+        🎯 Shreyanka dominates bowling
+    </div>
+
+    <div class="details-box">
+        <p id="newsDetails">Click a news headline to read</p>
+    </div>
+</div>
 
 </div>
 </div>
@@ -335,9 +367,13 @@ function showSection(section) {
     if (section === "stats") {
         document.getElementById("statsSection").classList.remove("hidden");
     }
+	if (section === "news") {
+    document.getElementById("newsSection").classList.remove("hidden");
+}
 
     // close sidebar
     document.getElementById("sidebar").classList.remove("active");
+	document.getElementById("newsSection").classList.add("hidden");
 }
 
 function showDetails(team, venue, time) {
@@ -348,6 +384,10 @@ function showDetails(team, venue, time) {
 function showPlayer(name, role) {
     document.getElementById("playerDetails").innerText =
         name + " - " + role;
+}
+	function showNews(title, content) {
+    document.getElementById("newsDetails").innerText =
+        title + " - " + content;
 }
 </script>
 
