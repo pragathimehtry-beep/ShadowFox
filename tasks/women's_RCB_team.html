@@ -53,6 +53,7 @@
             font-size: 32px;
             color: black;
             cursor: pointer;
+            z-index: 1000;
         }
 
         /* SIDEBAR */
@@ -65,6 +66,7 @@
             background: black;
             padding-top: 60px;
             transition: 0.4s;
+              z-index: 999; 
         }
 
         .sidebar a {
@@ -239,9 +241,9 @@
 }
 	.slideshow-container {
     max-width: 800px;
- 	 margin: auto;
-     position: relative;
-   
+    margin: auto;
+    position: relative;
+    padding-top: 80px; /* ADD THIS */
 }
 .slide {
     width: 100%;
@@ -303,9 +305,11 @@
     <!-- BUTTONS -->
     <button class="prev" onclick="changeSlide(-1)">❮</button>
     <button class="next" onclick="changeSlide(1)">❯</button>
-	</div>
+
+</div>
 
 
+    <!-- MATCH SCHEDULE -->
     <div id="scheduleSection" class="schedule-box hidden">
 
         <h2>RCB Women's Schedule</h2>
@@ -342,7 +346,7 @@
 
     </div>
     
-
+<!-- PLAYER SECTION -->
 <div id="playerSection" class="player-box hidden">
 
     <h1>RCB Women's Players</h1>
@@ -456,7 +460,7 @@
     <div class="details-box">
         <p id="newsDetails">Click a news headline to read</p>
     </div>
-	</div>
+
 </div>
 	<div id="fansSection" class="schedule-box hidden">
     <h2>Fan Zone 💬</h2>
@@ -590,5 +594,8 @@ setInterval(() => {
 
 </body>
 </html>
+
+
+
 
 
