@@ -320,6 +320,17 @@ function showSection(section) {
     if (section === "players") {
         document.getElementById("playerSection").classList.remove("hidden");
     }
+	else if (section === "stats") {
+    title.innerText = "RCB Team Statistics";
+    text.innerHTML = `
+        <b>Matches Played:</b> 240+ <br><br>
+        <b>Wins:</b> 110+ <br><br>
+        <b>Highest Team Score:</b> 263/5 <br><br>
+        <b>Lowest Team Score:</b> 49 all out <br><br>
+        <b>Top Run Scorer:</b> Virat Kohli <br><br>
+        <b>Top Wicket Taker:</b> Yuzvendra Chahal
+    `;
+}
 
     // close sidebar
     document.getElementById("sidebar").classList.remove("active");
