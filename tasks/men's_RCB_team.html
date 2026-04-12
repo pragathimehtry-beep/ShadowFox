@@ -1,1 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* BACKGROUND */
+    .container {
+    height: 140vh;
+    background-image: url("https://media.fortuneindia.com/fortune-india/2025-11-06/6incrk23/RCB.jpg?w=640&auto=format,compress&q=80");
+    background-size: center;
+    background-position: center;
+}
+
+    
+	@keyframes floatText {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0);
+       margin:0;
+    
+    }
+}
+
+  h1 {
+    text-align: center;
+    font-family:'Bebas Neue', sans-serif;
+    font-size: 60px;
+    letter-spacing: 3px;
+    color: #ffffff;
+
+
+    /* 3D EFFECT */
+    text-shadow: 
+        2px 2px 0 #ff0000,
+        4px 4px 0 #cc0000,
+        6px 6px 0 #990000,
+        8px 8px 10px rgba(0,0,0,0.7);
+
+    margin-top: 20px;
+      animation: floatText 3s ease-in-out infinite;
+}  
+        /* MENU BUTTON */
+        .menu-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 32px;
+            color: black;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background: black;
+            padding-top: 60px;
+            transition: 0.4s;
+              z-index: 999; 
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+        }
+
+        .sidebar a:hover {
+            background: rgba(255,0,0,0.3);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        /* HIDE SECTIONS */
+        .hidden {
+            display: none;
+        }
+
+        /* SCHEDULE BOX */
+        .schedule-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            background: rgba(0,0,0,0.8);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .schedule-box h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        tr {
+            cursor: pointer;
+        }
+
+        tr:hover {
+            background: rgba(255,0,0,0.3);
+        }
+
+        th, td {
+            padding: 10px;
+        }
+
+        th {
+            color: red;
+        }
+
+        .live {
+            color: lime;
+            font-weight: bold;
+        }
+
+        .details-box {
+            margin-top: 15px;
+        }
+   .player-box {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+     min-height: 500px;
+			
+    background: rgba(0,0,0,0.85);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.player-box h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+}
+
+/* PLAYER GRID */
+.players {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 150px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: rgba(255,0,0,0.3);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin-top: 10px;
+}
+		.news-item {
+    background: rgba(255,255,255,0.1);
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.news-item:hover {
+    background: rgba(255,0,0,0.3);
+}
+		.vote-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+.vote-btn {
+    background: linear-gradient(135deg, #ff1a1a, #800000);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* HOVER EFFECT */
+.vote-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: linear-gradient(135deg, #ff3333, #990000);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+/* CLICK EFFECT */
+.vote-btn:active {
+    transform: scale(0.95);
+}
+	.slideshow-container {
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+    padding-top: 80px; /* ADD THIS */
+}
+.slide {
+    width: 100%;
+    display: none;
+    border-radius: 15px;
+     margin:auto;
+ 
+}
+
+.slide.active {
+    display: block;
+    
+}
+
+/* BUTTONS */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: red;
+}
+    </style>
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+<div class="menu-btn" onclick="toggleMenu()">☰ </div>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" onclick="showSection('schedule')">Match Schedule</a>
+    <a href="javascript:void(0)" onclick="showSection('players')">Current Players</a>
+	<a href="javascript:void(0)" onclick="showSection('stats')">Team Statistics</a>
+	<a href="javascript:void(0)" onclick="showSection('news')">Latest News</a>
+	<a href="javascript:void(0)" onclick="showSection('fans')">Fan Zone</a>
+</div>
+
+<div class="container">
+	 <div class="slideshow-container">
+	<h1> Welcome To Women's RCB Fan Page</h1>
+    <img class="slide active" src="https://media.assettype.com/thequint%2F2026-02-06%2Ftqhnv1lo%2FHAapHhXbcAAlORS.jpg?auto=format%2Ccompress&fmt=webp&width=720">
+    <img class="slide" src="https://c.ndtvimg.com/2026-02/18lj8vuk_rcb_625x300_06_February_26.jpg?im=FeatureCrop,algorithm=dnn,width=806,height=605">
+    <img class="slide" src="https://assets.thehansindia.com/h-upload/2024/03/18/1431391-rcb-women-make-history-claim-first-wpl-trophy.jpg">
+
+    <!-- BUTTONS -->
+    <button class="prev" onclick="changeSlide(-1)">❮</button>
+    <button class="next" onclick="changeSlide(1)">❯</button>
+
+</div>
+
+
+    <!-- MATCH SCHEDULE -->
+    <div id="scheduleSection" class="schedule-box hidden">
+
+        <h2>RCB Women's Schedule</h2>
+
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Match</th>
+                <th>Status</th>
+            </tr>
+
+            <tr onclick="showDetails('Delhi Capitails', 'BCA Sadium,Vadodra', '7:30 PM')">
+                <td>FINAL - 5 FEB 2026</td>
+                <td> RCB vs MI</td>
+                <td> RCB BEAT DC BY 6 WICKETS</td>
+            </tr>
+
+            <tr onclick="showDetails('UP Warriorz', 'BCA Sadium,Vadodra', '7:30 PM')">
+                <td>29 JANUARY 2026</td>
+                <td>RCB vs UP</td>
+                <td>RCB BEAT UP WARRIORZ BY 8 WICKETS </td>
+            </tr>
+
+            <tr onclick="showDetails('Mumbai Indians', 'BCA Sadium,Vadodra', '7:30 PM')">
+                <td>26 JANUARY 2026</td>
+                <td>RCB vs MI</td>
+                <td>MI BEAT RCB BY 15 RUNS</td>
+            </tr>
+        </table>
+
+        <div class="details-box">
+            <p id="detailsText">Click a match to see details</p>
+        </div>
+
+    </div>
+    
+<!-- PLAYER SECTION -->
+<div id="playerSection" class="player-box hidden">
+
+    <h1>RCB Women's Players</h1>
+
+    <div class="players">
+
+        <div class="card" onclick="showPlayer('Smriti Mandhana', 'Captain & Batter')">
+            <img src="https://www.wplt20.com/static-assets/images/players/63992.png?v=52.13">
+            <h3>Smriti Mandhana</h3>
+        </div>
+
+        <div class="card" onclick="showPlayer('Richa Ghosh', 'Wicketkeeper')">
+            <img src="https://www.wplt20.com/static-assets/images/players/series/13458/74530.png?v=52.13">
+            <h3>Richa Ghosh</h3>
+        </div>
+		
+        <div class="card" onclick="showPlayer('georgia Voll', 'Batter')">
+            <img src="https://www.wplt20.com/static-assets/images/players/75001.png?v=52.13">
+            <h3>georgia Voll</h3>
+        </div>
+		
+		 <div class="card" onclick="showPlayer('Arundhati Reddy', 'All rounder')">
+            <img src="https://www.wplt20.com/static-assets/images/players/series/13458/70064.png?v=52.13">
+            <h3>Arundhati Reddy</h3>
+        </div>
+         <div class="card" onclick="showPlayer('Dayalan Hemalatha', 'All rounder')">
+            <img src="https://www.wplt20.com/static-assets/images/players/series/13458/69399.png?v=52.13">
+            <h3>Dayalan Hemalatha</h3>
+        </div>
+		
+          <div class="card" onclick="showPlayer('Gautami Naik', 'All rounder')">
+            <img src="https://www.wplt20.com/static-assets/images/players/series/13458/93529.png?v=52.13">
+            <h3>Gautami Naik</h3>
+        </div>
+		
+          <div class="card" onclick="showPlayer('Grace Harris', 'All rounder')">
+            <img src="https://www.wplt20.com/static-assets/images/players/series/13458/65633.png?v=52.13">
+            <h3>Grace Harris</h3>
+        </div>
+		
+          <div class="card" onclick="showPlayer('Pooja Vastrakar', 'All rounder')">
+            <img src="https://www.wplt20.com/static-assets/images/players/67302.png?v=52.13">
+            <h3>Nadine de Klerk</h3>
+        </div>
+		
+            <div class="card" onclick="showPlayer('Prema Rawat', 'All rounder')">
+            <img src="https://www.wplt20.com/static-assets/images/players/series/13458/112786.png?v=52.13">
+            <h3>Prema Rawat</h3>
+        </div>
+		
+         <div class="card" onclick="showPlayer('sayali Satghare', 'All rounder')">
+            <img src="https://www.wplt20.com/static-assets/images/players/83633.png?v=52.13">
+            <h3>sayali Satghare</h3>
+        </div>
+		
+          <div class="card" onclick="showPlayer('Shreyanka Patil', 'All rounder')">
+            <img src="https://www.wplt20.com/static-assets/images/players/series/13458/75598.png?v=52.13">
+            <h3>Shreyanka Patil</h3>
+        </div>
+		
+          <div class="card" onclick="showPlayer('Prathyoosha Kumar', 'Wicket-keeper')">
+            <img src="https://www.wplt20.com/static-assets/images/players/82877.png?v=52.13">
+            <h3>Prathyoosha Kumar</h3>
+        </div>
+		
+  
+     <div class="card" onclick="showPlayer('Lauren Bell', 'Bowler')">
+            <img src="https://www.wplt20.com/static-assets/images/players/series/13458/69906.png?v=52.13">
+            <h3>Lauren Bell</h3>
+        </div>
+		
+         <div class="card" onclick="showPlayer('Linsey smith', 'Bowler')">
+            <img src="https://www.wplt20.com/static-assets/images/players/series/13458/69760.png?v=52.13">
+            <h3>Linsey Smith</h3>
+        </div>
+     </div>
+  
+    <!-- PLAYER DETAILS -->
+    <div class="details-box">
+        <h1 id="playerDetails">Click a player to see details</h1>
+    </div>
+
+    </div>
+    <div id="statsSection" class="schedule-box hidden">
+    <h2>RCB Team Statistics</h2>
+
+    <p><b>Matches Played:</b> 30+</p>
+    <p><b>Wins:</b> 18+</p>
+    <p><b>Highest Score:</b> 213</p>
+    <p><b>Lowest Score:</b> 107</p>
+    <p><b>Top Run Scorer:</b> Smriti Mandhana</p>
+    <p><b>Top Wicket Taker:</b>  Shreyanka Patil</p>
+</div>
+		
+	</div>
+	<div id="newsSection" class="schedule-box hidden">
+    <h2>RCB Women's News</h2>
+
+    <div class="news-item" onclick="showNews('RCB wins WPL 2026!', 'RCB defeated Delhi Capitals in the final to lift their 2nd title.')">
+        🏆 RCB wins WPL 2026
+    </div>
+
+    <div class="news-item" onclick="showNews('Smriti Mandhana shines', 'Mandhana played a match-winning knock in the finals.')">
+        🌟 Mandhana leads from front
+    </div>
+
+    <div class="news-item" onclick="showNews('Shreyanka Patil top bowler', 'She finished as one of the leading wicket-takers.')">
+        🎯 Shreyanka dominates bowling
+    </div>
+
+    <div class="details-box">
+        <p id="newsDetails">Click a news headline to read</p>
+    </div>
+
+</div>
+	<div id="fansSection" class="schedule-box hidden">
+    <h2>Fan Zone 💬</h2>
+
+    <!-- POLL -->
+    <h3>Who is your favorite player?</h3>
+
+   <div class="vote-buttons">
+    <button class="vote-btn" onclick="vote('Mandhana')">Smriti Mandhana</button>
+    <button class="vote-btn" onclick="vote('Richa')">Richa Ghosh</button>
+    <button class="vote-btn" onclick="vote('Shreyanka')">Shreyanka Patil</button>
+</div>
+
+    <p id="voteResult">No votes yet</p>
+
+    <hr>
+
+    <!-- LIKE BUTTON -->
+    <h3>Support RCB ❤️</h3>
+	<button class="vote-btn" onclick="likeTeam()">❤️ Like</button>
+    <p id="likeCount">Likes: 0</p>
+
+    <hr>
+
+    <!-- COMMENT BOX -->
+    <h3>Fan Comments</h3>
+    <input type="text" id="commentInput" placeholder="Write a comment..." style="padding:8px; width:70%;">
+	<button class="vote-btn" onclick="addComment()">Post</button>
+
+    <div id="commentList" style="margin-top:10px;"></div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+function showSection(section) {
+
+    // hide all sections
+    document.getElementById("scheduleSection").classList.add("hidden");
+    document.getElementById("playerSection").classList.add("hidden");
+    document.getElementById("statsSection").classList.add("hidden");
+	document.getElementById("newsSection").classList.add("hidden");
+	document.getElementById("fansSection").classList.add("hidden");
+
+    // show selected section
+    if (section === "schedule") {
+        document.getElementById("scheduleSection").classList.remove("hidden");
+    }
+
+    if (section === "players") {
+        document.getElementById("playerSection").classList.remove("hidden");
+    }
+
+    if (section === "stats") {
+        document.getElementById("statsSection").classList.remove("hidden");
+    }
+	if (section === "news") {
+    document.getElementById("newsSection").classList.remove("hidden");
+}
+	if (section === "fans") {
+    document.getElementById("fansSection").classList.remove("hidden");
+}
+    // close sidebar
+    document.getElementById("sidebar").classList.remove("active");
+}
+
+function showDetails(team, venue, time) {
+    document.getElementById("detailsText").innerText =
+        "Opponent: " + team + " | Venue: " + venue + " | Time: " + time;
+}
+
+function showPlayer(name, role) {
+    document.getElementById("playerDetails").innerText =
+        name + " - " + role;
+}
+	function showNews(title, content) {
+    document.getElementById("newsDetails").innerText =
+        title + " - " + content;
+}
+	let likes = 0;
+
+function likeTeam() {
+    likes++;
+    document.getElementById("likeCount").innerText = "Likes: " + likes;
+}
+
+function vote(player) {
+    document.getElementById("voteResult").innerText =
+        "You voted for " + player + "!";
+}
+
+function addComment() {
+    let input = document.getElementById("commentInput");
+    let comment = input.value;
+
+    if (comment.trim() === "") return;
+
+    let div = document.createElement("div");
+    div.innerText = "💬 " + comment;
+
+    document.getElementById("commentList").appendChild(div);
+
+    input.value = "";
+}
+	let currentSlide = 0;
+let slides = document.getElementsByClassName("slide");
+
+function showSlide(index) {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+    }
+
+    slides[index].classList.add("active");
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+
+    if (currentSlide >= slides.length) currentSlide = 0;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
+
+    showSlide(currentSlide);
+}
+
+/* AUTO SLIDE */
+setInterval(() => {
+    changeSlide(1);
+}, 3000); // changes every 3 sec
+</script>
+
+</body>
+</html>
 
