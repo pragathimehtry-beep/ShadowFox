@@ -9,7 +9,6 @@
             font-family: Arial, sans-serif;
         }
 
-        /* BACKGROUND */
     .container {
     height: 220vh;
     background-image: url("https://media.fortuneindia.com/fortune-india/2025-11-06/6incrk23/RCB.jpg?w=640&auto=format,compress&q=80");
@@ -35,7 +34,6 @@
     color: #ffffff;
 
 
-    /* 3D EFFECT */
     text-shadow: 
         2px 2px 0 #ff0000,
         4px 4px 0 #cc0000,
@@ -45,7 +43,6 @@
     margin-top: 20px;
       animation: floatText 3s ease-in-out infinite;
 }  
-        /* MENU BUTTON */
         .menu-btn {
             position: absolute;
             top: 20px;
@@ -56,7 +53,7 @@
             z-index: 1000;
         }
 
-        /* SIDEBAR */
+
         .sidebar {
             position: fixed;
             top: 0;
@@ -86,12 +83,10 @@
             left: 0;
         }
 
-        /* HIDE SECTIONS */
         .hidden {
             display: none;
         }
 
-        /* SCHEDULE BOX */
         .schedule-box {
             position: absolute;
             top: 50%;
@@ -162,7 +157,6 @@
     font-size: 36px;
 }
 
-/* PLAYER GRID */
 .players {
     display: flex;
     justify-content: center;
@@ -171,7 +165,6 @@
     margin-top: 20px;
 }
 
-/* CARD */
 .card {
     background: rgba(255,255,255,0.1);
     padding: 10px;
@@ -228,14 +221,13 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-/* HOVER EFFECT */
+
 .vote-btn:hover {
     transform: translateY(-3px) scale(1.05);
     background: linear-gradient(135deg, #ff3333, #990000);
     box-shadow: 0 10px 25px rgba(0,0,0,0.6);
 }
 
-/* CLICK EFFECT */
 .vote-btn:active {
     transform: scale(0.95);
 }
@@ -258,7 +250,6 @@
     
 }
 
-/* BUTTONS */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -283,10 +274,8 @@
 
 <body>
 
-<!-- MENU BUTTON -->
 <div class="menu-btn" onclick="toggleMenu()">☰ </div>
 
-<!-- SIDEBAR -->
 <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" onclick="showSection('schedule')">Match Schedule</a>
     <a href="javascript:void(0)" onclick="showSection('players')">Current Players</a>
@@ -302,14 +291,12 @@
     <img class="slide" src="https://fortunescrown.com/wp-content/uploads/2024/11/rcb.webp">
     <img class="slide" src="https://www.livemint.com/lm-img/img/2025/12/08/600x338/RCB_Ipl_2025_1748979890723_1765183989287_1765191688978.jpg">
 
-    <!-- BUTTONS -->
     <button class="prev" onclick="changeSlide(-1)">❮</button>
     <button class="next" onclick="changeSlide(1)">❯</button>
 
 </div>
 
 
-    <!-- MATCH SCHEDULE -->
     <div id="scheduleSection" class="schedule-box hidden">
 
         <h2>RCB men's Schedule</h2>
@@ -356,10 +343,9 @@
 
     </div>
     
-<!-- PLAYER SECTION -->
 <div id="playerSection" class="player-box hidden">
 
-    <h2>RCB Women's Players</h2>
+    <h2>RCB Men's Players</h2>
 
     <div class="players">
 
@@ -474,8 +460,7 @@
             <h3>Linsey Smith</h3>
        
      </div>
-  
-    <!-- PLAYER DETAILS -->
+
     <div class="details-box">
         <h2 id="playerDetails">Click a player to see details</h2>
     </div>
@@ -529,14 +514,12 @@
 
     <hr>
 
-    <!-- LIKE BUTTON -->
     <h3>Support RCB ❤️</h3>
 	<button class="vote-btn" onclick="likeTeam()">❤️ Like</button>
     <p id="likeCount">Likes: 0</p>
 
     <hr>
 
-    <!-- COMMENT BOX -->
     <h3>Fan Comments</h3>
     <input type="text" id="commentInput" placeholder="Write a comment..." style="padding:8px; width:70%;">
 	<button class="vote-btn" onclick="addComment()">Post</button>
