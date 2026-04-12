@@ -208,6 +208,46 @@
 .vote-btn:active {
     transform: scale(0.95);
 }
+		.slideshow-container {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+.slide {
+    width: 100%;
+    display: none;
+    border-radius: 15px;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* BUTTONS */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: red;
+}
     </style>
 </head>
 
@@ -226,7 +266,17 @@
 </div>
 
 <div class="container">
+	<div class="slideshow-container">
 
+    <img class="slide active" src="https://images.indianexpress.com/2024/03/RCB-WPL.jpg">
+    <img class="slide" src="https://images.hindustantimes.com/img/2024/02/RCB-team.jpg">
+    <img class="slide" src="https://img.jagranjosh.com/images/2024/March/1832024/rcb-wpl-team.jpg">
+
+    <!-- BUTTONS -->
+    <button class="prev" onclick="changeSlide(-1)">❮</button>
+    <button class="next" onclick="changeSlide(1)">❯</button>
+
+</div>
     <!-- MATCH SCHEDULE -->
     <div id="scheduleSection" class="schedule-box hidden">
 
@@ -481,6 +531,30 @@ function addComment() {
 
     input.value = "";
 }
+	let currentSlide = 0;
+let slides = document.getElementsByClassName("slide");
+
+function showSlide(index) {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+    }
+
+    slides[index].classList.add("active");
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+
+    if (currentSlide >= slides.length) currentSlide = 0;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
+
+    showSlide(currentSlide);
+}
+
+/* AUTO SLIDE */
+setInterval(() => {
+    changeSlide(1);
+}, 3000); // changes every 3 sec
 </script>
 
 </body>
