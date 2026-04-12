@@ -291,7 +291,6 @@
 	<a href="javascript:void(0)" onclick="showSection('stats')">Team Statistics</a>
 	<a href="javascript:void(0)" onclick="showSection('news')">Latest News</a>
 	<a href="javascript:void(0)" onclick="showSection('fans')">Fan Zone</a>
-	<a href="javascript:void(0)" onclick="showSection('Home_page')">Home Page</a>
 </div>
 
 <div class="container">
@@ -523,10 +522,6 @@ function showSection(section) {
 	if (section === "fans") {
     document.getElementById("fansSection").classList.remove("hidden");
 }
-		if (section === "Home_page") {
-    window.location.href = "https://pragathimehtry-beep.github.io/ShadowFox/tasks/portfolio.html";
-    }
-
     // close sidebar
     document.getElementById("sidebar").classList.remove("active");
 }
