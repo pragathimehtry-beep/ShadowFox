@@ -354,6 +354,7 @@ function showSection(section) {
     document.getElementById("scheduleSection").classList.add("hidden");
     document.getElementById("playerSection").classList.add("hidden");
     document.getElementById("statsSection").classList.add("hidden");
+	document.getElementById("newsSection").classList.add("hidden");
 
     // show selected section
     if (section === "schedule") {
@@ -373,7 +374,6 @@ function showSection(section) {
 
     // close sidebar
     document.getElementById("sidebar").classList.remove("active");
-	document.getElementById("newsSection").classList.add("hidden");
 }
 
 function showDetails(team, venue, time) {
